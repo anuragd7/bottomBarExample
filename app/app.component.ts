@@ -101,6 +101,9 @@ export class AppComponent implements OnInit, OnDestroy {
      */
     public setActiveTabFromUrlChange() {
         console.log("The tab selected from url is " + this.textToNumber);
+
+        //Not being able to call the selectItem funtion. typescript is giving the following error
+        //app/app.component.ts(104,19): error TS2339: Property 'selectItem' does not exist on type 'BottomBar'.
         this._bar.selectItem(this.textToNumber);
     }
 }    
