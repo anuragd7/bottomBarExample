@@ -3,13 +3,27 @@
     <Button text="TAP" (tap)="onTap()" class="btn btn-primary btn-active"></Button>
     <Label [text]="message" class="h2 text-center" textWrap="true"></Label>
 </StackLayout>-->
+<!--<ActionBar class="action-bar">
+    <StackLayout>
+        <abc></abc>
+    </StackLayout>
 
+</ActionBar>
 <StackLayout class="p-20">
-   <ListView [items]="Questions" class="list-group" (itemTap)="onItemTap($event)" (setupItemView)="onSetupItemView($event)">
+    <ListView [items]="Questions" class="list-group" (itemTap)="onItemTap($event)" (setupItemView)="onSetupItemView($event)">
         <template let-question="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
                 <HtmlView [html]="question.name" ></HtmlView>
             </GridLayout>
         </template>
-    </ListView> 
-</StackLayout>
+    </ListView>
+</StackLayout>-->
+
+<GridLayout rows="*, auto">
+    <StackLayout row="0" orientation="vertical">
+        <Label text="demo text Bla Bla Bla"></Label>
+        <router-outlet></router-outlet>
+    </StackLayout>
+    <BottomBar height="100" opacity="0.5" verticalAlignment="center" row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor"
+        colored="true"></BottomBar>
+</GridLayout>
