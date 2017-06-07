@@ -1,6 +1,7 @@
 import { AbcComponent } from "./test.component";
 import { AppComponent } from "./app.component";
 import { XyzComponent } from "./test1.component";
+import { PqrComponent } from "./test2.component";
 
 export const AppRoutes: any = [
     {
@@ -12,4 +13,5 @@ export const AppRoutes: any = [
         ],
     },
     { path: "", redirectTo: "main", pathMatch: "full" },
+    { path: "other", component: PqrComponent, pathMatch: "full" },
 ];

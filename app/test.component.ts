@@ -14,4 +14,8 @@ export class AbcComponent {
   goToTest1() {
     this.router.navigate(["/main/1"]);
   }
+
+  goToOthers() {
+    this.router.navigate(["/other"]);
+  }
 }

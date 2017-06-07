@@ -5,11 +5,12 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AbcComponent } from "./test.component";
 import { AppComponent } from "./app.component";
 import { XyzComponent } from "./test1.component";
+import { PqrComponent } from "./test2.component";
 import { MainsComponent } from "./mains.component";
 import { AppRoutes } from "./app.routing"
 
 @NgModule({
-    declarations: [AppComponent, AbcComponent, XyzComponent, MainsComponent],
+    declarations: [AppComponent, AbcComponent, XyzComponent, PqrComponent, MainsComponent],
     bootstrap: [MainsComponent],
     imports: [NativeScriptModule,
         NativeScriptRouterModule,

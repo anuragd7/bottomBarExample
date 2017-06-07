@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
     public _bar: BottomBar;
     public inactiveColor: string;
     public accentColor: string;
-    public textToNumber: number;
+    public currentTabNumberToBeSelected: number;
     private routerSubscriber: Subscription;
 
     public items: Array<BottomBarItem> = [
@@ -52,31 +52,46 @@ export class AppComponent implements OnInit, OnDestroy {
         new BottomBarItem(3, "Message", "book", "green", new Notification("green", "red", "1"))
     ];
 
+    selected: number = 0;
+
     constructor(private router: Router) {
 
     }
 
 
+    // ngOnInit() {
+    //     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //     //Add 'implements OnInit' to the class.
+    //     this.routerSubscriber = this.router.events.subscribe((value) => {
+    //         console.log(value);
+    //         // if (this.router.isActive("/main", false)) {
+    //         if (value.url.indexOf("/main") !== -1) {
+    //             console.log("In maintab view Subscribed to the router and now in main root");
+    //             const getTabFromUrl = value.url.charAt(value.url.length - 1);
+    //             this.textToNumber = parseInt(getTabFromUrl);
+    //             //this.textToNumber = +getTabFromUrl;
+    //             console.log("Checking wheather parseint is working or not" + this.textToNumber);
+    //             this.setActiveTabFromUrlChange();
+    //         }
+    //     });
+    // }
+
+
+
     ngOnInit() {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        this.routerSubscriber = this.router.events.subscribe((value) => {
-            console.log(value);
-            // if (this.router.isActive("/main", false)) {
-            if (value.url.indexOf("/main") !== -1) {
-                console.log("In maintab view Subscribed to the router and now in main root");
-                const getTabFromUrl = value.url.charAt(value.url.length - 1);
-                this.textToNumber = parseInt(getTabFromUrl);
-                //this.textToNumber = +getTabFromUrl;
-                console.log("Checking wheather parseint is working or not" + this.textToNumber);
-                this.setActiveTabFromUrlChange();
-            }
-        });
+        console.log("++++++++++++++++++ In On Init Of app Component *******************");
+        const currentRouterUrl = this.router.url;
+        if (currentRouterUrl.indexOf("/main") !== -1) {
+            console.log("In app view Subscribed to the router and now in main root");
+            const getTabFromUrl = currentRouterUrl.charAt(currentRouterUrl.length - 1);
+            this.currentTabNumberToBeSelected = parseInt(getTabFromUrl);
+            //this.setActiveTabFromUrlChange();
+        }
     }
 
 
     ngOnDestroy() {
-        this.routerSubscriber.unsubscribe();
+        //this.routerSubscriber.unsubscribe();
     }
 
     tabLoaded(event) {
@@ -85,11 +100,14 @@ export class AppComponent implements OnInit, OnDestroy {
         this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
         this.inactiveColor = "white";
         this.accentColor = "blue";
+        console.log("&&&&&&&&&& In Bottombar the tab loded is fired &&&&&&&&&&");
+        this.setActiveTabFromUrlChange();
     }
 
     tabSelected(args: SelectedIndexChangedEventData) {
         // only triggered when a different tab is tapped
-        console.log(args.newIndex);
+        console.log("&&&&&&&&&& In Bottombar the tab is selected from UI &&&&&&&&&&");
+        console.log("The new tab selected is " + args.newIndex);
         const routeParameterIndex = args.newIndex.toString();
         this.router.navigate(["/main/" + routeParameterIndex]);
     }
@@ -100,10 +118,10 @@ export class AppComponent implements OnInit, OnDestroy {
      * Sets the current tab by getting the information from url.
      */
     public setActiveTabFromUrlChange() {
-        console.log("The tab selected from url is " + this.textToNumber);
-
-        //Not being able to call the selectItem funtion. typescript is giving the following error
-        //app/app.component.ts(104,19): error TS2339: Property 'selectItem' does not exist on type 'BottomBar'.
-        this._bar.selectItem(this.textToNumber);
+        console.log("&&&&&&&&&& The tab selected from url change &&&&&&&&&&");
+        if (this.currentTabNumberToBeSelected !== null) {
+            this._bar.selectItem(this.currentTabNumberToBeSelected);
+            this.selected = this.currentTabNumberToBeSelected;
+        }
     }
 }    

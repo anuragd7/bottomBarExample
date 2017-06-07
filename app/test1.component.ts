@@ -14,4 +14,8 @@ export class XyzComponent {
     goToTest() {
         this.router.navigate(["/main/0"]);
     }
+
+    goToOthers() {
+        this.router.navigate(["/other"]);
+    }
 }
