@@ -55,7 +55,10 @@ export class AppComponent implements OnInit, OnDestroy {
     selected: number = 0;
 
     constructor(private router: Router) {
-
+        this.hidden = false;
+        this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
+        this.inactiveColor = "white";
+        this.accentColor = "blue";
     }
 
 
@@ -96,10 +99,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
     tabLoaded(event) {
         this._bar = <BottomBar>event.object;
-        this.hidden = false;
-        this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
-        this.inactiveColor = "white";
-        this.accentColor = "blue";
+        // this.hidden = false;
+        // this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
+        // this.inactiveColor = "white";
+        // this.accentColor = "blue";
         console.log("&&&&&&&&&& In Bottombar the tab loded is fired &&&&&&&&&&");
         this.setActiveTabFromUrlChange();
     }
