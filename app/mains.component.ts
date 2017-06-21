@@ -6,5 +6,7 @@ import { Component } from "@angular/core";
     templateUrl: "mains.component.html",
 })
 export class MainsComponent {
-
+    constructor() {
+        console.log("I am in the constructor of Mains Component");
+    }
 }
