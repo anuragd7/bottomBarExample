@@ -1,6 +1,20 @@
-<StackLayout>
-    <Label text="hello !!! Test here, I am quite angry ah!!!" textWrap="true"></Label>
-    <Label text="You can go to test-1" textWrap="true"></Label>
-    <Button text="Go To Test-1" (tap)="goToTest1()"></Button>
-    <Button text="Go To Other" (tap)="goToOthers()"></Button>
+<StackLayout height="100%">
+    <StackLayout sdkToggleNavButton orientation="horizontal">
+        <ActionBar backgroundColor="#f82462">
+            <!--<StackLayout horizontalAlignment="stretch" backgroundColor="white">-->
+            <StackLayout class="m-r-20">
+                <GridLayout rows="*" columns="auto 17* auto">
+                    <SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
+                    </SearchBar>
+                    <Button row="0" col="2" (tap)="onSearch()" text="&#xf002;" class="fa search-button btn-border-none" foregroundColor="white" horizontalAlignment="left"></Button>
+                </GridLayout>
+            </StackLayout>
+        </ActionBar>
+    </StackLayout>
+    <StackLayout>
+        <Label text="hello !!! Test here, I am quite angry ah!!!" textWrap="true"></Label>
+        <Label text="You can go to test-1" textWrap="true"></Label>
+        <Button text="Go To Test-1" (tap)="goToTest1()"></Button>
+        <Button text="Go To Other" (tap)="goToOthers()"></Button>
+    </StackLayout>
 </StackLayout>

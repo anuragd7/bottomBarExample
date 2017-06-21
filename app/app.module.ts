@@ -2,15 +2,15 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { AbcComponent } from "./test.component";
+import { TestComponent } from "./test.component";
 import { AppComponent } from "./app.component";
-import { XyzComponent } from "./test1.component";
-import { PqrComponent } from "./test2.component";
+import { Test1Component } from "./test1.component";
+import { Test2Component } from "./test2.component";
 import { MainsComponent } from "./mains.component";
 import { AppRoutes } from "./app.routing"
 
 @NgModule({
-    declarations: [AppComponent, AbcComponent, XyzComponent, PqrComponent, MainsComponent],
+    declarations: [AppComponent, TestComponent, Test1Component, Test2Component, MainsComponent],
     bootstrap: [MainsComponent],
     imports: [NativeScriptModule,
         NativeScriptRouterModule,

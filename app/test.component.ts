@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'abc',
+  selector: 'test',
   templateUrl: `./test.component.html`
 })
-export class AbcComponent {
+export class TestComponent {
 
   constructor(private router: Router) {
     console.log("+++++++++++++++++++++++++ Now I m in test component ++++++++++++++++++++++++");
@@ -17,5 +17,13 @@ export class AbcComponent {
 
   goToOthers() {
     this.router.navigate(["/other"]);
+  }
+
+  onSearch() {
+    console.log("On search button click event");
+  }
+
+  searchBarLoaded() {
+    console.log("On search bar loaded click event handler");
   }
 }

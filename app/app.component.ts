@@ -62,25 +62,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
 
-    // ngOnInit() {
-    //     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //     //Add 'implements OnInit' to the class.
-    //     this.routerSubscriber = this.router.events.subscribe((value) => {
-    //         console.log(value);
-    //         // if (this.router.isActive("/main", false)) {
-    //         if (value.url.indexOf("/main") !== -1) {
-    //             console.log("In maintab view Subscribed to the router and now in main root");
-    //             const getTabFromUrl = value.url.charAt(value.url.length - 1);
-    //             this.textToNumber = parseInt(getTabFromUrl);
-    //             //this.textToNumber = +getTabFromUrl;
-    //             console.log("Checking wheather parseint is working or not" + this.textToNumber);
-    //             this.setActiveTabFromUrlChange();
-    //         }
-    //     });
-    // }
-
-
-
     ngOnInit() {
         console.log("++++++++++++++++++ In On Init Of app Component *******************");
         const currentRouterUrl = this.router.url;
