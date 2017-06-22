@@ -1,20 +1,32 @@
-<StackLayout height="100%">
-    <StackLayout sdkToggleNavButton orientation="horizontal">
-        <ActionBar backgroundColor="#f82462">
-            <!--<StackLayout horizontalAlignment="stretch" backgroundColor="white">-->
-            <StackLayout class="m-r-20">
-                <GridLayout rows="*" columns="auto 17* auto">
-                    <SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
-                    </SearchBar>
-                    <Button row="0" col="2" (tap)="onSearch()" text="&#xf002;" class="fa search-button btn-border-none" foregroundColor="white" horizontalAlignment="left"></Button>
-                </GridLayout>
-            </StackLayout>
-        </ActionBar>
+<!--<ActionBar backgroundColor="#f82462">
+    <StackLayout class="m-r-20">
+        <GridLayout rows="*" columns="auto 17* auto">
+            <SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
+            </SearchBar>
+            <Button row="0" col="2" (tap)="onSearch()" text="&#xf002;" class="fa search-button btn-border-none" foregroundColor="white" horizontalAlignment="left"></Button>
+        </GridLayout>
     </StackLayout>
-    <StackLayout>
-        <Label text="hello !!! Test here, I am quite angry ah!!!" textWrap="true"></Label>
-        <Label text="You can go to test-1" textWrap="true"></Label>
-        <Button text="Go To Test-1" (tap)="goToTest1()"></Button>
-        <Button text="Go To Other" (tap)="goToOthers()"></Button>
+</ActionBar>-->
+
+<!--My Changes after nicolay's reply-->
+
+<!--This changes Works perfectly-->
+<!--<ActionBar title="Welcome to Test" backgroundColor="green" color="white">
+</ActionBar>-->
+
+<!--After Putting searchbar inside actionbar, the searchbar is showing in test1 component also -->
+<ActionBar backgroundColor="green" color="white">
+    <StackLayout class="m-r-20">
+        <GridLayout rows="*" columns="auto 17* auto">
+            <SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
+            </SearchBar>
+            <Button row="0" col="2" (tap)="onSearch()" text="&#xf002;" class="fa search-button btn-border-none" foregroundColor="white" horizontalAlignment="left"></Button>
+        </GridLayout>
     </StackLayout>
+</ActionBar>
+<StackLayout>
+    <Label text="hello !!! Test here, I am quite angry ah!!!" textWrap="true"></Label>
+    <Label text="You can go to test-1" textWrap="true"></Label>
+    <Button text="Go To Test-1" (tap)="goToTest1()"></Button>
+    <Button text="Go To Other" (tap)="goToOthers()"></Button>
 </StackLayout>
