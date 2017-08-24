@@ -16,13 +16,13 @@
 
 <!--After Putting searchbar inside actionbar, the searchbar is showing in test1 component also -->
 <ActionBar backgroundColor="green" color="white">
-    <StackLayout class="m-r-20">
-        <GridLayout rows="*" columns="auto 17* auto">
-            <SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
-            </SearchBar>
-            <Button row="0" col="2" (tap)="onSearch()" text="&#xf002;" class="fa search-button btn-border-none" foregroundColor="white" horizontalAlignment="left"></Button>
-        </GridLayout>
-    </StackLayout>
+    <GridLayout>
+        <!--<SearchBar row="0" col="1" colSpan="2" id="searchbarid" (loaded)="searchBarLoaded()" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white" class="search-bar search-bar-width">
+            </SearchBar>-->
+        <SearchBar id="searchbarid" #sbcontent hint="Enter search phrase" [text]="searchPhrase" textFieldBackgroundColor="#f82462" textFieldHintColor="white">
+        </SearchBar>
+
+    </GridLayout>
 </ActionBar>
 <StackLayout>
     <Label text="hello !!! Test here, I am quite angry ah!!!" textWrap="true"></Label>
